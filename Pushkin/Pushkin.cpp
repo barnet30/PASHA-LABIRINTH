@@ -1,5 +1,6 @@
 #include "pch.h"
 #include <iostream>
+#include"conio.h"
 using namespace std;
 const int MazeHeight = 11;
 const int MazeWidth = 11;
@@ -96,7 +97,7 @@ bool Solve(int X, int Y)
 int main()
 {
 	COORD You = StartingPoint;
-	/*char step;
+	char step;
 	bool b = true, exit = false;
 	Maze[You.X][You.Y] = SomeDude;
 	cout << "Choose the side which you want to go:" << endl;
@@ -104,8 +105,9 @@ int main()
 	cout << "If you wanna restart enter r" << endl;
 	while (b && !exit)
 	{
+		system("cls");
 		PrintDaMaze();
-		cin >> step;
+		step=_getch();//cin>>step;(Без нажанитя Enter)
 		switch (step)
 		{
 		case 'r': {clear_coord(); You = StartingPoint; Maze[You.X][You.Y] = SomeDude; } break;
@@ -176,7 +178,7 @@ int main()
 		PrintDaMaze();
 	}
 	else if (!b) cout << "You loser! Try again" << endl;
-*/
+	/*
 	if (Solve(StartingPoint.X, StartingPoint.Y))
 	{
 		cout << "Success!" << endl;
@@ -184,5 +186,6 @@ int main()
 	}
 	else
 	cout << "Failed!" << endl;
+	*/
 	return 0;
 }
