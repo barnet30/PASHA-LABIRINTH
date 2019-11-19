@@ -1,5 +1,6 @@
 #include "pch.h"
 #include <iostream>
+#include <cstdlib>
 #include"conio.h"
 using namespace std;
 const int MazeHeight = 11;
@@ -37,7 +38,11 @@ void clear_coord()
 		for (int X = 0; X < MazeWidth + 1; X++)
 			if (Maze[Y][X] == SomeDude) Maze[Y][X] = Free;
 }
-
+int exit_func()
+{
+	cout << "You leave from game" << endl;
+	exit(0);
+}
 void PrintDaMaze()
 {
 	for (int Y = 0; Y < MazeHeight; Y++)
@@ -103,14 +108,16 @@ int main()
 	cout << "Choose the side which you want to go:" << endl;
 	cout << "'w' - up, 'a' - left,'s' - down, 'd'-right" << endl;
 	cout << "If you wanna restart enter r" << endl;
+	cout << "Press q if you wanna leave from game" << endl;
 	while (b && !exit)
 	{
-		system("cls");
 		PrintDaMaze();
-		step=_getch();//cin>>step;(Без нажанитя Enter)
+		step=_getch();
+		system("cls");
 		switch (step)
 		{
 		case 'r': {clear_coord(); You = StartingPoint; Maze[You.X][You.Y] = SomeDude; } break;
+		case'q': {exit_func(); }
 		case 'a':
 			if (You.Y > 0 && Maze[You.X][You.Y - 1] == Free)
 			{
