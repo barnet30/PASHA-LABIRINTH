@@ -124,6 +124,13 @@ int main()
 				You.Y -= 1;
 				Maze[You.X][You.Y] = SomeDude;
 			}
+			else if (Maze[You.X][You.Y-1] == SomeDude)
+			{
+				Maze[You.X][You.Y] = Free;
+				You.Y -= 1;
+				Maze[You.X][You.Y] = SomeDude;
+
+			}
 			else if (You.X == EndingPoint.X&&You.Y == EndingPoint.Y)
 			{
 				cout << "Exit is founded! Congratulations!!" << endl;
@@ -139,13 +146,13 @@ int main()
 				You.X -= 1;
 				Maze[You.X][You.Y] = SomeDude;
 			}
-			/*else if (Maze[You.X - 1][You.Y] == SomeDude)
+			else if (Maze[You.X - 1][You.Y] == SomeDude)
 			{
 				Maze[You.X][You.Y] = Free;
 				You.X -= 1;
 				Maze[You.X][You.Y] = SomeDude;
 
-			}*/
+			}
 			else if (You.X == EndingPoint.X&&You.Y == EndingPoint.Y)
 			{
 				cout << "Exit is founded! Congratulations!!" << endl;
@@ -161,6 +168,13 @@ int main()
 				You.X += 1;
 				Maze[You.X][You.Y] = SomeDude;
 			}
+			else if (Maze[You.X + 1][You.Y] == SomeDude)
+			{
+				Maze[You.X][You.Y] = Free;
+				You.X += 1;
+				Maze[You.X][You.Y] = SomeDude;
+
+			}
 			else if (You.X == EndingPoint.X&&You.Y == EndingPoint.Y)
 			{
 				cout << "Exit is founded! Congratulations!!" << endl;
@@ -175,6 +189,13 @@ int main()
 			{
 				You.Y += 1;
 				Maze[You.X][You.Y] = SomeDude;
+			}
+			else if (Maze[You.X][You.Y+1] == SomeDude)
+			{
+				Maze[You.X][You.Y] = Free;
+				You.Y -= 1;
+				Maze[You.X][You.Y] = SomeDude;
+
 			}
 			else if (You.X == EndingPoint.X&&You.Y == EndingPoint.Y)
 			{
