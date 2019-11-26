@@ -77,25 +77,25 @@ bool Solve(int X, int Y)
 	{
 		return true;
 	}
-	// Recursively search for our goal.
-	if (X > 0 && Maze[X - 1][Y] == Free && Solve( X - 1,Y))
+// Recursively search for our goal.
+	if (X > 0 && Maze[X - 1][Y] == Free && Solve(X - 1, Y))
 	{
 		return true;
 	}
-	if (X < MazeWidth && Maze[X + 1][Y] == Free && Solve(X + 1,Y))
+	if (X < MazeWidth && Maze[X + 1][Y] == Free && Solve(X + 1, Y))
 	{
 		return true;
 	}
-	if (Y > 0 && Maze[X][Y - 1] == Free && Solve( X,Y-1))
+	if (Y > 0 && Maze[X][Y - 1] == Free && Solve(X, Y - 1))
 	{
 		return true;
 	}
-	if (Y < MazeHeight && Maze[X][Y + 1] == Free && Solve( X,Y + 1))
+	if (Y < MazeHeight && Maze[X][Y + 1] == Free && Solve(X, Y + 1))
 	{
 		return true;
 	}
 	// Otherwise we need to backtrack and find another solution.
-	Maze[Y][X] = Free;
+	Maze[X][Y] = Free;
 	return false;
 }
 
@@ -112,7 +112,7 @@ int main()
 	while (b && !exit)
 	{
 		PrintDaMaze();
-		step=_getch();
+		step = _getch();
 		system("cls");
 		switch (step)
 		{
@@ -139,6 +139,13 @@ int main()
 				You.X -= 1;
 				Maze[You.X][You.Y] = SomeDude;
 			}
+			/*else if (Maze[You.X - 1][You.Y] == SomeDude)
+			{
+				Maze[You.X][You.Y] = Free;
+				You.X -= 1;
+				Maze[You.X][You.Y] = SomeDude;
+
+			}*/
 			else if (You.X == EndingPoint.X&&You.Y == EndingPoint.Y)
 			{
 				cout << "Exit is founded! Congratulations!!" << endl;
